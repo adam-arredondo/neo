@@ -1,0 +1,57 @@
+{
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "us-east-1",
+    "source_ami": "ami-6869aa05",
+    "instance_type": "t2.micro",
+    "ssh_username": "ec2-user",
+    "vpc_id": "{{user `vpc_id`}}",
+    "subnet_id": "{{user `subnet_id`}}",
+    "associate_public_ip_address": true,
+    "ami_description": "Installs Mysql client, cretes filesystem and mounts EBS volume to /dbDump/",
+    "ami_name": "{{user `Name`}}-{{user `Version`}}",
+    "launch_block_device_mappings":[
+      {
+        "device_name": "/dev/xvdb",
+        "volume_size": 15,
+        "volume_type": "gp2",
+        "delete_on_termination": true
+      },
+      {
+        "device_name": "/dev/xvdc",
+        "volume_size": 100,
+        "volume_type": "io1",
+        "iops":1000,
+        "delete_on_termination": true
+      }
+    ],
+      "tags": {
+        "Name": "{{user `Name`}}",
+        "Maintainer": "{{user `Maintainer`}}",
+        "Purpose": "{{user `Maintainer`}}",
+        "Created": "{{isotime \"2006-01-02\"}}"
+      }
+  }],
+  "provisioners": [
+    {
+    "type": "shell",
+    "scripts": [
+      "/home/aarredondo/devStuff/packer/provisoners/installUtilities.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/installMysql.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/createDBDir.sh"
+      ]
+    },
+    {
+    "type": "file",
+      "source": "/home/aarredondo/devStuff/packer/files/sqlCron",
+      "destination": "/home/ec2-user"
+    },
+    {
+    "type": "file",
+      "source": "/home/aarredondo/devStuff/packer/files/dbConfigs",
+      "destination": "/home/ec2-user"
+    }
+  ]
+}
