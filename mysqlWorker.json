@@ -27,20 +27,13 @@
         "delete_on_termination": true
       }
     ],
-      "tags": {
-        "Name": "{{user `Name`}}",
-        "Maintainer": "{{user `Maintainer`}}",
-        "Purpose": "{{user `Maintainer`}}",
-        "Created": "{{isotime \"2006-01-02\"}}"
-      }
-  }],
   "provisioners": [
     {
     "type": "shell",
     "scripts": [
-      "/home/aarredondo/devStuff/packer/provisoners/installUtilities.sh",
-      "/home/aarredondo/devStuff/packer/provisoners/installMysql.sh",
-      "/home/aarredondo/devStuff/packer/provisoners/createDBDir.sh"
+      "/home/aarredondo/devStuff/packer/provisoners/installUtilitiez.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/installMysql22.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/createDBDi333r.sh"
       ]
     },
     {
