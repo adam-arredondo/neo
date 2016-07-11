@@ -31,9 +31,12 @@
     {
     "type": "shell",
     "scripts": [
-      "/home/aarredondo/devStuff/packer/provisoners/installUtilitiez.sh",
-      "/home/aarredondo/devStuff/packer/provisoners/installMysql22.sh",
-      "/home/aarredondo/devStuff/packer/provisoners/createDBDi333r.sh"
+      "/home/aarredondo/devStuff/packer/provisoners/installUtilities.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/installMysql.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/createDBDir.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/testAdd.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/foo.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/bar.sh"
       ]
     },
     {
