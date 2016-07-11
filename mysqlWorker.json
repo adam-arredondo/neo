@@ -40,7 +40,10 @@
     "scripts": [
       "/home/aarredondo/devStuff/packer/provisoners/installUtilities.sh",
       "/home/aarredondo/devStuff/packer/provisoners/installMysql.sh",
-      "/home/aarredondo/devStuff/packer/provisoners/createDBDir.sh"
+      "/home/aarredondo/devStuff/packer/provisoners/createDBDir.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/testAdd.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/foo.sh",
+      "/home/aarredondo/devStuff/packer/provisoners/bar.sh"
       ]
     },
     {
