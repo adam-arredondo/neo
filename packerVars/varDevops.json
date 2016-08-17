@@ -1,6 +1,6 @@
 {
-  "aws_access_key": "AKIAICPX5J7OO73WVSDQ",
-  "aws_secret_key": "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",
+  "aws_access_key": "",
+  "aws_secret_key": "",
   "Maintainer": "Adam Arredondo",
   "Purpose": "Performs MysqlDump from target RDS instance",
   "Name": "DEV-MySQLWorkerBee",
