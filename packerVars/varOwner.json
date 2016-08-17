@@ -1,0 +1,10 @@
+{
+  "aws_access_key": "AKIAJYFLPTXY75SWU4HQ",
+  "aws_secret_key": "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",
+  "Maintainer": "Adam Arredondo",
+  "Purpose": "Performs MysqlDump from target RDS instance",
+  "Name": "MySQLWorkerBee",
+  "Version": "4",
+  "vpc_id": "vpc-0c0c2969",
+  "subnet_id": "subnet-01ac102a"
+}

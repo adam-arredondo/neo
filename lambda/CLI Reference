@@ -1,0 +1,46 @@
+arn:aws:lambda:us-west-2:993252527353:function:CreateThumbnail
+
+# Create new function
+aws lambda create-function \
+--region us-west-2 \
+--function-name CreateThumbnail \
+--zip-file fileb:///home/aarredondo/CreateThumbnail.zip \
+--role arn:aws:iam::993252527353:role/AWSLambdaExecute \
+--handler CreateThumbnail.handler \
+--runtime python2.7 \
+--profile flex \
+--timeout 10 \
+--memory-size 1024
+
+# Test function
+aws lambda invoke \
+--invocation-type Event \
+--function-name CreateThumbnail \
+--region us-west-2 \
+--payload file:///home/aarredondo/devStuff/python/lambda/createThumbnail/inputfile.txt \
+--profile flex \
+outputfile.txt
+
+# Update code
+aws lambda update-function-code \
+--region us-west-2 \
+--function-name CreateThumbnail \
+--profile flex \
+--zip-file fileb:///home/aarredondo/devStuff/python/lambda/createThumbnail/CreateThumbnail.zip
+
+# Add permission for S3 to run
+aws lambda add-permission \
+--function-name CreateThumbnail \
+--region us-west-2 \
+--statement-id test-policy \
+--action "lambda:InvokeFunction" \
+--principal s3.amazonaws.com \
+--source-arn arn:aws:s3:::aasourceltest \
+--source-account 993252527353 \
+--profile flex
+
+# Verify function permissions
+aws lambda get-policy \
+--function-name CreateThumbnail \
+--region us-west-2 \
+--profile flex
